@@ -147,7 +147,6 @@
             width: 25px;
             font-size: 1.1rem;
         }
-        /* --- NEW SOFTWARE GRID STYLES --- */
         
         .software-png-grid {
             display: flex;
@@ -266,7 +265,6 @@
             border-radius: 100px / 50px;
             transform: rotate(-5deg);
         }
-        /* --- PROJECTS TITLE STYLES --- */
         
         .projects-title {
             font-family: 'Montserrat', sans-serif;
@@ -325,7 +323,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             filter: grayscale(100%);
             backface-visibility: hidden;
-            -webkit-font-smoothing: subpixel-antialiased;
         }
         
         .reel-card:hover {
@@ -549,11 +546,6 @@
             transition: 0.3s;
         }
         
-        .close-video:hover {
-            color: var(--accent-purple);
-            transform: scale(1.1);
-        }
-        
         .close-modal {
             position: absolute;
             top: 20px;
@@ -585,31 +577,74 @@
             width: 100%;
             transition: 0.3s;
         }
-        /* --- MOBILE RESPONSIVENESS --- */
+        /* --- FIXED MOBILE RESPONSIVENESS --- */
         
         @media (max-width: 768px) {
+            .hero-wrapper {
+                height: auto;
+                padding-top: 60px;
+                overflow: hidden;
+            }
+            .content-container {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 0 20px;
+            }
             .bg-text {
-                font-size: 80px;
                 position: relative;
+                font-size: 18vw;
                 left: 0;
                 top: 0;
                 transform: none;
                 text-align: center;
-                margin-bottom: -50px;
+                line-height: 0.9;
+                margin-bottom: -40px;
+                letter-spacing: -2px;
+                opacity: 0.8;
+                width: 100%;
             }
             .person-placeholder {
                 position: relative;
                 width: 100%;
-                height: 450px;
+                height: 500px;
+                left: 0;
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+            }
+            .person-placeholder img {
+                height: 100%;
+                width: auto;
+                filter: drop-shadow(10px 0 20px rgba(0, 0, 0, 0.2));
             }
             .info-card {
                 position: relative;
-                width: 90%;
-                top: -30px;
-                margin: 0 auto;
+                width: 100%;
+                right: auto;
+                top: -40px;
+                margin: 0 auto 100px auto;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 40px 25px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+            .know-me {
+                display: none;
+            }
+            .floor {
+                height: 150px;
+                bottom: -50px;
             }
             .who-am-i-title {
                 font-size: 60px;
+            }
+            .bio-text {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            .cta-text {
+                font-size: 50px;
             }
             .reel-card {
                 flex: 0 0 250px;
@@ -623,33 +658,34 @@
     <!-- HERO SECTION -->
     <section class="hero-wrapper">
         <div class="content-container">
+            <!-- 1. The Background Text -->
             <div class="bg-text">PO<br>RT<br>FO<br>LIO</div>
 
-            <div class="floor">
-                <a href="#about" class="scroll-btn">Scroll Down <i class="fas fa-chevron-down"></i></a>
-            </div>
-
+            <!-- 2. Your Image -->
             <div class="person-placeholder">
-                <img src="./assets/images/transparent standing image.png" alt="Yalenthren">
+                <img src="./assets/images/transparent standing image.png" alt="Yaalenthren">
             </div>
 
+            <!-- 3. Your Info Card -->
             <div class="info-card">
                 <div class="label-pill">Video Editor</div>
                 <p class="intro-text">Hey, I am</p>
-                <h1 class="name">Yalenthren<br>Pathmanathan</h1>
+                <h1 class="name" style="font-size: 1.5rem;">Yalenthren<br>Pathmanathan</h1>
                 <ul class="social-links">
                     <li><i class="far fa-envelope"></i> yalenthren2003@gmail.com</li>
                     <li><i class="fab fa-instagram"></i> @yaalenthren</li>
                 </ul>
 
-                <!-- UPDATED SOFTWARE SECTION -->
                 <p style="font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px;">Softwares & Tools</p>
                 <div class="software-png-grid">
-                    <img src="assets/images/premiere-pro.png" alt="Premiere Pro" title="Adobe Premiere Pro">
-                    <img src="assets/images/after-effects.png" alt="After Effects" title="Adobe After Effects">
-                    <img src="assets/images/photoshop.png" alt="Photoshop" title="Adobe Photoshop">
-                    <!-- Add more as needed -->
+                    <img src="assets/images/premiere-pro.png" alt="Pr" title="Adobe Premiere Pro">
+                    <img src="assets/images/after-effects.png" alt="Ae" title="Adobe After Effects">
+                    <img src="assets/images/photoshop.png" alt="Ps" title="Adobe Photoshop">
                 </div>
+            </div>
+
+            <div class="floor">
+                <a href="#about" class="scroll-btn">Scroll <i class="fas fa-chevron-down"></i></a>
             </div>
 
             <div class="know-me">want know<br>about me?</div>
