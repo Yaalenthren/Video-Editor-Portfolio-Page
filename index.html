@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Yaalenthren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Inter:wght@400;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+         :root {
+            --bg-color: #f0f0f0;
+            --accent-black: #111111;
+            --accent-purple: #6e41e2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--accent-black);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        /* --- HERO SECTION --- */
+        
+        .hero-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #ffffff 0%, #d1d1d1 100%);
+        }
+        
+        .content-container {
+            position: relative;
+            width: 1200px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .bg-text {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 220px;
+            line-height: 0.8;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -8px;
+            pointer-events: none;
+            z-index: 6;
+            mix-blend-mode: difference;
+            color: #2e2e2e;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .person-placeholder {
+            position: absolute;
+            left: 10px;
+            bottom: 0;
+            width: 700px;
+            height: 840px;
+            z-index: 10;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            pointer-events: none;
+        }
+        
+        .person-placeholder img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(20px 0 30px rgba(0, 0, 0, 0.3));
+        }
+        
+        .info-card {
+            position: absolute;
+            right: 0;
+            top: 20%;
+            width: 380px;
+            padding: 50px 40px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            z-index: 11;
+        }
+        
+        .label-pill {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-black);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .intro-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        
+        .social-links {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .social-links li {
+            margin: 12px 0;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .social-links i {
+            width: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .know-me {
+            position: absolute;
+            right: 50px;
+            bottom: 25%;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            line-height: 1.1;
+            z-index: 11;
+        }
+        
+        .floor {
+            position: absolute;
+            bottom: 0;
+            left: -500px;
+            width: 2500px;
+            height: 250px;
+            background: var(--accent-black);
+            clip-path: polygon(0 80%, 100% 0, 100% 100%, 0 100%);
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 30px;
+        }
+        
+        .scroll-btn {
+            position: relative;
+            z-index: 100;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s ease;
+        }
+        
+        .scroll-btn:hover {
+            background: white;
+            color: black !important;
+            transform: translateY(-3px);
+        }
+        /* --- SECTIONS --- */
+        
+        .section {
+            padding: 120px 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+        
+        .who-am-i-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 120px;
+            line-height: 0.8;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .who-am-i-title span {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 2px white;
+        }
+        
+        .bio-text {
+            max-width: 800px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 50px;
+        }
+        
+        .handwritten-note {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: white;
+            border: 2px white solid;
+            padding: 20px 40px;
+            border-radius: 100px / 50px;
+            transform: rotate(-5deg);
+        }
+        /* --- PROJECTS TITLE STYLES --- */
+        
+        .projects-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .title-underline {
+            width: 300px;
+            height: 4px;
+            background: white;
+            margin-bottom: 60px;
+            border-radius: 2px;
+        }
+        /* --- INFINITE AUTO-SLIDER --- */
+        
+        .projects-slider-container {
+            width: 100vw;
+            overflow: hidden;
+            padding: 60px 0;
+            background: transparent;
+            position: relative;
+            pointer-events: auto;
+        }
+        
+        .slider-track {
+            display: flex;
+            width: calc((300px + 25px) * 10);
+            gap: 25px;
+            animation: scroll 30s linear infinite;
+            transform: translate3d(0, 0, 0);
+            animation: scroll 25s linear infinite;
+            will-change: transform;
+        }
+        
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(calc(-1 * (300px + 25px) * 5), 0, 0);
+            }
+        }
+        
+        .reel-card {
+            flex: 0 0 300px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            filter: grayscale(100%);
+            /* Fixes flickering on some browsers */
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+        
+        .reel-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            filter: grayscale(0%);
+            box-shadow: 0 20px 50px rgba(110, 65, 226, 0.4);
+            border-color: var(--accent-purple);
+            z-index: 10;
+        }
+        
+        .reel-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .reel-card:hover video {
+            opacity: 1;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            color: white;
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        
+        .reel-card:hover .play-button {
+            opacity: 0.9;
+        }
+        /* --- CTA SECTION --- */
+        
+        .cta-section {
+            position: relative;
+            background: #d1d1d1;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 100px 5% 120px 5%;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #111;
+            transform: skewY(-10deg);
+            transform-origin: top left;
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: right;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .cta-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(60px, 10vw, 180px);
+            font-weight: 900;
+            line-height: 0.85;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-text span {
+            display: block;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .cta-text .repeat {
+            mix-blend-mode: difference;
+            color: #ffffff;
+        }
+        
+        .cta-label {
+            background: var(--accent-purple);
+            color: white;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            position: absolute;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .footer-cta {
+            align-self: flex-start;
+            margin-left: 5%;
+            z-index: 3;
+            position: relative;
+        }
+        
+        .scribble-container {
+            border: 3px solid #111;
+            padding: 40px 60px;
+            border-radius: 50% 40% 60% 30% / 30% 60% 40% 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scribble-container:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-purple);
+            transform: rotate(-2deg) scale(1.05);
+        }
+        
+        .footer-handwritten {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #333;
+            line-height: 1.2;
+        }
+        /* --- MODALS --- */
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        
+        .modal-content {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 30px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+            animation: modalSlideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .video-container {
+            width: 90%;
+            max-width: 450px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .close-video {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 3001;
+            transition: 0.3s;
+        }
+        
+        .close-video:hover {
+            color: var(--accent-purple);
+            transform: scale(1.1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .send-btn {
+            background: var(--accent-purple);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            transition: 0.3s;
+        }
+        /* --- MOBILE RESPONSIVENESS --- */
+        
+        @media (max-width: 768px) {
+            .bg-text {
+                font-size: 80px;
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                text-align: center;
+                margin-bottom: -50px;
+            }
+            .person-placeholder {
+                position: relative;
+                width: 100%;
+                height: 450px;
+            }
+            .info-card {
+                position: relative;
+                width: 90%;
+                top: -30px;
+                margin: 0 auto;
+            }
+            .who-am-i-title {
+                font-size: 60px;
+            }
+            .reel-card {
+                flex: 0 0 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero-wrapper">
+        <div class="content-container">
+            <div class="bg-text">PO<br>RT<br>FO<br>LIO</div>
+
+            <div class="floor">
+                <a href="#about" class="scroll-btn">Scroll Down <i class="fas fa-chevron-down"></i></a>
+            </div>
+
+            <div class="person-placeholder">
+                <img src="./assets/images/withoutbg.png" alt="Yalenthren">
+            </div>
+
+            <div class="info-card">
+                <div class="label-pill">Video Editor</div>
+                <p class="intro-text">Hey, I am</p>
+                <h1 class="name">Yalenthren<br>Pathmanathan</h1>
+                <ul class="social-links">
+                    <li><i class="fab fa-behance"></i> behance.net/rashid-aef</li>
+                    <li><i class="far fa-envelope"></i> yalenthren2003@gmail.com</li>
+                    <li><i class="fab fa-instagram"></i> @yaalenthren</li>
+                </ul>
+                <p style="font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Softwares</p>
+                <div class="software-icons" style="display: flex; gap: 15px; font-size: 1.4rem; margin-top: 10px;">
+                    <i class="fab fa-adobe"></i>
+                    <i class="fas fa-cube"></i>
+                    <i class="fab fa-unity"></i>
+                </div>
+            </div>
+
+            <div class="know-me">want know<br>about me?</div>
+        </div>
+    </section>
+
+    <!-- WHO AM I -->
+    <section class="section" id="about">
+        <div class="who-am-i-title">WHO<br><span>AM I</span></div>
+        <div class="title-underline" style="width: 400px; opacity: 0.3;"></div>
+        <p class="bio-text">
+            A dedicated editor with hands-on experience in Adobe Premiere Pro, Adobe After Effects, Blender, Capcut, and Unity3D. I love working with brands, influencers, and anyone who wants to tell a strong story through video.
+        </p>
+        <div class="handwritten-note">Do you wanna<br>see my projects?</div>
+    </section>
+
+    <!-- PROJECTS (Infinite Slider) -->
+    <section class="section">
+        <h2 class="projects-title">My Projects</h2>
+        <div class="title-underline"></div>
+
+        <div class="projects-slider-container">
+            <div class="slider-track">
+                <!-- Original 5 Videos -->
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/(07)_(april)_april_new_lots_v1 (1080p).mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Real estate Promo.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Clip 2.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Clip 2 (1).mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Clip 3.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/4th one edited.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+
+                <!-- CLONES for Infinite Loop -->
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/(07)_(april)_april_new_lots_v1 (1080p).mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Real estate Promo.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Clip 2.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Clip 2 (1).mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/Clip 3.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="reel-card">
+                    <video autoplay muted loop playsinline><source src="assets/videos/4th one edited.mp4" type="video/mp4"></video>
+                    <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & FOOTER -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-text">
+                <span>EDIT. <small class="cta-label" style="top: 10%; right: -20px;">Quality</small></span>
+                <span>DELIVER. <small class="cta-label" style="top: 45%; right: 150px;">Emotion</small></span>
+                <span class="repeat">REPEAT. <small class="cta-label" style="bottom: 10%; right: 40px;">Identity</small></span>
+            </h2>
+        </div>
+
+        <div class="footer-cta">
+            <div class="scribble-container" id="openModal">
+                <p class="footer-handwritten">
+                    Ready to make your<br>brand unforgettable
+                    <strong style="font-family: Montserrat; font-size: 2.2rem; display: block;">Let's Roll !</strong>
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p style="font-size: 10px; color: #555; letter-spacing: 1px; text-align: center; width: 100%;">
+                © 2024 YALENTHREN PATHMANATHAN. ALL RIGHTS RESERVED.
+            </p>
+        </footer>
+    </section>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeBtn">&times;</span>
+            <h2 style="font-family: Montserrat; margin-bottom: 15px;">Work With Me</h2>
+            <p style="margin-bottom: 20px; color: #666;">Let's create something unforgettable together.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Tell me about your project..."></textarea>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="video-modal" id="videoOverlay">
+        <span class="close-video" id="closeVideo">&times;</span>
+        <div class="video-container">
+            <video id="mainVideo" controls autoplay></video>
+        </div>
+    </div>
+
+    <script>
+        const videoOverlay = document.getElementById('videoOverlay');
+        const mainVideo = document.getElementById('mainVideo');
+        const closeVideo = document.getElementById('closeVideo');
+        const reelCards = document.querySelectorAll('.reel-card');
+
+        // Open Video Lightbox
+        reelCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const videoSrc = card.querySelector('source').src;
+                mainVideo.src = videoSrc;
+                videoOverlay.style.display = 'flex';
+                mainVideo.play();
+            });
+        });
+
+        // Close Lightbox
+        function hideVideo() {
+            videoOverlay.style.display = 'none';
+            mainVideo.pause();
+            mainVideo.src = "";
+        }
+
+        closeVideo.onclick = hideVideo;
+        videoOverlay.onclick = (e) => {
+            if (e.target === videoOverlay) hideVideo();
+        };
+
+        // Contact Modal Logic
+        const modal = document.getElementById('contactModal');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeBtn');
+
+        openBtn.onclick = () => modal.style.display = 'flex';
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
